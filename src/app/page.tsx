@@ -1,101 +1,92 @@
-import Image from "next/image";
+import { AccordionExperience } from "@/components/experience"
+import * as motion from "motion/react-client"
+import { AccordionProjects } from "@/components/projectslist";
+import { sections } from "@/lib/config";
+import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from "@tabler/icons-react";
+// import { motion } from "motion/react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="max-w-screen-xl p-6 mx-auto" id="about">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+<div className="flex flex-col md:flex-row justify-between">
+
+<div id="Left Column" className="md:w-[30%]">
+
+<section id="Title Block" className="mb-6">
+<div className="font-bold text-4xl">Sean Averill</div>
+<div className="text-xl">Mechanical Engineer</div>
+<div className="flex flex-nowrap gap-2 opacity-60 py-2">
+  <motion.div 
+  whileHover={{ rotate: 20, scale: 1.1, y: 2 }}
+  >
+  <Link href="https://www.linkedin.com/in/sean-averill/" className="hover:text-blue-300"><IconBrandLinkedinFilled size={24} /></Link>
+  </motion.div>
+  <motion.div 
+  whileHover={{ rotate: 20, scale: 1.1, y: 2 }}
+  >
+  <Link href="https://github.com/seanaverill" className="hover:text-blue-300"><IconBrandGithubFilled size={24} /></Link>
+  </motion.div>
+
+  <motion.div 
+  whileHover={{ rotate: 20, scale: 1.1, y: 2 }}
+  >
+  <Link href="https://www.instagram.com/sean.averill/" className="hover:text-blue-300"><IconBrandInstagramFilled size={24} /></Link>
+  </motion.div>
+
+</div>
+</section>
+
+<section className="hidden md:block mt-24 sticky top-6">
+  <div className="flex flex-col gap-4 font-bold">
+    {sections.map((section) => (
+      
+      
+      <motion.div
+      key={section.title} 
+      whileHover={{ scale: 1.1, x: 30 }}
+      >
+        <Link  href={'#'+`${section.title}`}>
+        <li className="list-none hover:text-blue-300 hover:cursor-pointer capitalize">{section.title}
+        </li>
+        </Link>
+        </motion.div>
+    ))}
+  </div>
+</section>
+
+</div>
+
+<div id="Right Column" className="md:w-[70%]">
+  <section>
+    <div className="flex flex-col gap-8">
+      <div>Mechanical Engineer and Product Development Leader blending technical expertise with business acumen. I manage strategic projects, mentor engineering teams, and drive innovation across mechanical systems and software solutions. My experience spans custom engineering design, data automation, and algorithm development—consistently delivering results that balance innovation with reliability. I thrive at the intersection of technical problem-solving and strategic leadership.
+      <br />
+      <br />
+      When I am not designing and developing new products in the mechanical space, I turn to the digital world to create and develop software solutions. I have experience in full-stack development, data analysis and application design. I am always looking for new opportunities to learn and grow in the digital space.
+      </div>
+
+    <div id="experience">
+      <div className="font-bold text-2xl">Experience</div>
+      <AccordionExperience />
+    </div>
+
+    <div id="projects">
+      <div className="font-bold text-2xl mb-4">Projects</div>
+      <AccordionProjects />
+    </div> 
+
+   </div>
+  </section>
+</div>
+
+
+</div>
+
+
+
     </div>
   );
 }
