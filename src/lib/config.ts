@@ -1,4 +1,3 @@
-
 export const experience = [
     {
         title: "NPD Engineer II",
@@ -53,6 +52,42 @@ export const experience = [
 ]
 
 export const projects = [
+    {
+        title: "Hobie Cat 16 Restoration",
+        slug: "hobiecat",
+        image: "/images/projects/TBD.jpg",
+        type: "diy",
+        description: "Restored a 1985 Hobie Cat 16 sailboat, replacing the rigging/hardware and repairing the mast."
+    },
+    {
+        title: "Robo Mower",
+        slug: "robomower",
+        image: "/images/projects/TBD.jpg",
+        type: "diy",
+        description: "Built a robotic lawn mower to mow my lawn."
+    },
+    {
+        title: "Homelab Server",
+        slug: "homelab",
+        image: "/images/projects/TBD.jpg",
+        type: "diy",
+        description: "Built a server to host my own applications and remove my reliance on an external cloud."
+    },
+    {
+        title: "Fence Installation",
+        slug: "fence",
+        image: "/images/projects/TBD.jpg",
+        type: "diy",
+        description: "Installed a fence around our property for my dog."
+    },
+    {
+        title: "Bathroom Remodel",
+        slug: "bathroom",
+        image: "/images/projects/TBD.jpg",
+        type: "diy",
+        description: "Remodel and renovation of our primary bathroom."
+    },
+ 
     {
         title: "1810PR",
         slug: "1810pr",

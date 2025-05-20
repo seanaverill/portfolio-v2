@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { projects } from "@/lib/config"
-import { IconArchiveFilled, IconArrowDown, IconDeviceDesktopFilled, IconTagFilled, IconTestPipe2Filled } from "@tabler/icons-react";
+import { IconArchiveFilled, IconArrowDown, IconDeviceDesktopFilled, IconHammer, IconTagFilled, IconTestPipe2Filled } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export function AccordionProjects() {
@@ -23,6 +23,8 @@ export function AccordionProjects() {
         return <IconDeviceDesktopFilled size={24} />;
       case 'r&d':
         return <IconTestPipe2Filled size={24} />;
+      case 'diy':
+        return <IconHammer size={24} />;
       default:
         return <IconArchiveFilled size={24} />;
     }
@@ -35,15 +37,15 @@ export function AccordionProjects() {
   return (
     <div>
       <div className="flex gap-2 mb-4">
-        {['product development', 'programming', 'r&d'].map((type) => (
-          <button
+        {['product development', 'programming', 'r&d', 'diy'].map((type) => (
+            <button
             key={type}
             onClick={() => handleTypeChange(type)}
-            className={`px-3 py-1 rounded capitalize flex items-center gap-1 hover:cursor-pointer ${selectedTypes.includes(type) ? 'bg-slate-600 border border-slate-600 text-white hover:bg-slate-600/80' : 'bg-transparent border border-white hover:bg-slate-200/10'}`}
-          >
-            {type}
+            className={`px-3 py-1 rounded flex items-center gap-1 hover:cursor-pointer ${selectedTypes.includes(type) ? 'bg-slate-600 border border-slate-600 text-white hover:bg-slate-600/80' : 'bg-transparent border border-white hover:bg-slate-200/10'}`}
+            >
+            {type === 'diy' ? 'DIY' : type.charAt(0).toUpperCase() + type.slice(1)}
             {selectedTypes.includes(type) && <span className="text-xs">✕</span>}
-          </button>
+            </button>
         ))}
       </div>
       <ul className="list bg-slate-800/60 rounded-box shadow-md">
